@@ -1,0 +1,71 @@
+<div *ngIf="data">
+  <dl>
+    <dt>Beschreibung</dt>
+    <dd>{{data.description}}</dd>
+    <dt>Glaube</dt>
+    <dd>{{data.belief}}</dd>
+    <dt>Geschätzter Ort</dt>
+    <dd>{{data.fav_place}}</dd>
+    <dt>Wertvollste Person</dt>
+    <dd>{{data.fav_person}}</dd>
+  </dl>
+
+  <h2>Charaktereigenschaften</h2>
+  <div class="dark">
+    <mat-list role="list">
+      <div *ngFor="let char of data.character">
+        <mat-list-item role="listitem">{{char}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
+  </div>
+
+  <h2>Magie</h2>
+  <div class="dark">
+    <mat-list role="list">
+      <div *ngFor="let spell of data.magic">
+        <mat-list-item role="listitem">{{spell}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+
+  <h2>Narben</h2>
+  <div class="dark">
+    <mat-list role="list">
+      <div *ngFor="let scar of data.scars">
+        <mat-list-item role="listitem">{{scar}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+
+  <h2>Phobien</h2>
+  <div class="dark">
+    <mat-list role="list">
+      <div *ngFor="let phob of data.phobia">
+        <mat-list-item role="listitem">{{phob}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+</div>
+

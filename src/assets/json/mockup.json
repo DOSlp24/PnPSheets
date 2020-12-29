@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "date": "Sun, 27 Dec 1920 06:30:15 GMT"
+  },
+  "pers_info": {
+    "name": "Test Name",
+    "played_by": "Me",
+    "ocupation": "Test Job",
+    "birthday": "Sun, 27 Dec 1920 06:30:15 GMT",
+    "age": "20",
+    "gender": "männlich",
+    "address": "Test Adresse",
+    "place_of_birth": "Boston"
+  },
+  "picture": {
+    "src": "Test.jpg",
+    "type": "assets"
+  },
+  "background": {
+    "description": "This could be a longer Text and should be testet as such.. \nI gotta write some text here in order to test the multiline capabilities of the field",
+    "belief": "This aswell could be a long Text.\nDude",
+    "character": [
+      "Chill",
+      "Silent",
+      "Peacful"
+    ],
+    "phobia": [
+      "Spiders",
+      "Darkness"
+    ],
+    "scars": [
+      "Shoulder",
+      "Eye"
+    ],
+    "magic": [
+      "Melt Flesh",
+      "Summon Something"
+    ],
+    "fav_place": "Home",
+    "fav_person": "Mommy"
+  },
+  "attributes": [
+    {
+      "name": "ST",
+      "values": {
+        "default": "5",
+        "normal": "15",
+        "hard": "7",
+        "extreme": "3"
+      }
+    },
+    {
+      "name": "KO",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "GE",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "IN",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "MA",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "GR",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "ER",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "Konstitution",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "Konstitution",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    },
+    {
+      "name": "Konstitution",
+      "values": {
+        "default": "2",
+        "normal": "20",
+        "hard": "10",
+        "extreme": "4"
+      }
+    }
+  ],
+  "money": {
+    "daily_norm": 100,
+    "cash": 200,
+    "investment": 500,
+    "other": [
+      "House (1500)",
+      "Car (400)"
+    ]
+  },
+  "inventory": [
+    {
+      "name": "Stick",
+      "description": "Its a fricking stick.. what do you expect?"
+    },
+    {
+      "name": "Button",
+      "description": "It holds your Pants together.\nAnd some other things aswell."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Test Skill 1",
+      "values": {
+        "default": 5,
+        "normal": 15,
+        "hard": 7,
+        "extreme": 3
+      }
+    },
+    {
+      "name": "Test Skill 2",
+      "values": {
+        "default": 5,
+        "normal": 25,
+        "hard": 12,
+        "extreme": 5
+      }
+    },
+    {
+      "name": "Test Skill 3",
+      "values": {
+        "default": 5,
+        "normal": 15,
+        "hard": 7,
+        "extreme": 3
+      }
+    }
+  ],
+  "state": {
+    "hitpoints": 100,
+    "mana": 20,
+    "mental": 80,
+    "luck": 62
+  },
+  "combat": {
+    "comment": "Sick Comment about something\nMultiline",
+    "dodge": {
+      "default": 5,
+      "normal": 15,
+      "hard": 7,
+      "extreme": 3
+    },
+    "melee": {
+      "default": 20,
+      "normal": 20,
+      "hard": 10,
+      "extreme": 4,
+      "weapon": "Fists",
+      "dmg": "1W6",
+      "range": 12,
+      "attacks": 2,
+      "shots": -1,
+      "malfunction": 15
+    },
+    "small": {
+      "default": 20,
+      "normal": 20,
+      "hard": 10,
+      "extreme": 4,
+      "weapon": "Pistol",
+      "dmg": "1W6",
+      "range": 12,
+      "attacks": 2,
+      "shots": -1,
+      "malfunction": 15
+    },
+    "big": {
+      "default": 20,
+      "normal": 20,
+      "hard": 10,
+      "extreme": 4,
+      "weapon": "Machine Gun",
+      "dmg": "1W6",
+      "range": 12,
+      "attacks": 2,
+      "shots": -1,
+      "malfunction": 15
+    }
+  }
+}

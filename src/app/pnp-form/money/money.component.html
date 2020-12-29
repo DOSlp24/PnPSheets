@@ -1,0 +1,29 @@
+<div *ngIf="data">
+  <dl>
+    <dt>Tägliche Norm</dt>
+    <dd>{{data.daily_norm}}</dd>
+    <dt>Flüssiges Vermögen</dt>
+    <dd>{{data.cash}}</dd>
+    <dt>Angelegtes Vermögen</dt>
+    <dd>{{data.investment}}</dd>
+  </dl>
+
+  <h2>Andere Wertgegenstände</h2>
+  <div class="dark">
+    <mat-list role="list">
+      <div *ngFor="let val of data.other">
+        <mat-list-item role="listitem">{{val}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+</div>
+<div *ngIf="!data">
+  -
+</div>

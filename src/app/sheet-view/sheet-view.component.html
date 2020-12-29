@@ -1,0 +1,44 @@
+<button mat-button (click)="exportPdf()">PDF herunterladen</button>
+<div *ngIf="data">
+  <div id="page-one" fxFlexFill class="page">
+    <div fxFlexLayout="row">
+      <div id="picture-area" class="flex-item">
+        <char-picture [data]="data.picture"></char-picture>
+        <div class="space-around">
+          <h1>Inventar</h1>
+          <inventory [data]="data.inventory"></inventory>
+        </div>
+      </div>
+      <div id="pers-data-area" fxFlex fxFlexLayout="row">
+        <div fxFlex="30" class="bordered space-around">
+          <h1>Charakter Info</h1>
+          <pers-information [data]="data.pers_info"></pers-information>
+          <h1>Finanzmittel</h1>
+          <money [data]="data.money"></money>
+        </div>
+        <div fxFlex class="bordered space-around">
+          <h1>Hintergrund</h1>
+          <background [data]="data.background"></background>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="page-two" fxFlexFill class="page">
+    <div fxFlexFill>
+      <h1>Status</h1>
+      <state [data]="data.state"></state>
+    </div>
+    <div fxFlexFill>
+      <h1>Attribute</h1>
+      <attribute *ngFor="let attribute of data.attributes" [data]="attribute"></attribute>
+    </div>
+    <div fxFlexFill>
+      <h1>Fähigkeiten</h1>
+      <skills [data]="data.skills"></skills>
+    </div>
+    <div fxFlexFill>
+      <h1>Kampf</h1>
+      <combat [data]="data.combat"></combat>
+    </div>
+  </div>
+</div>

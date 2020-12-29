@@ -1,0 +1,60 @@
+<div *ngIf="data" class="dark">
+  <mat-list>
+    <div *ngFor="let skill of data">
+      <mat-list-item>
+        <div fxFlex="40">
+          {{skill.name}}
+        </div>
+        <div fxFlex>
+          <div fxFlex>{{skill.values.normal}}</div>
+          <div fxFlex>/</div>
+          <div fxFlex>{{skill.values.hard}}</div>
+          <div fxFlex>/</div>
+          <div fxFlex>{{skill.values.extreme}}</div>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+
+    <mat-list-item>
+      <div fxFlex="40">
+      </div>
+      <div fxFlex>
+        <div fxFlex></div>
+        <div fxFlex>/</div>
+        <div fxFlex></div>
+        <div fxFlex>/</div>
+        <div fxFlex></div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div fxFlex="40">
+      </div>
+      <div fxFlex>
+        <div fxFlex></div>
+        <div fxFlex>/</div>
+        <div fxFlex></div>
+        <div fxFlex>/</div>
+        <div fxFlex></div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div fxFlex="40">
+      </div>
+      <div fxFlex>
+        <div fxFlex></div>
+        <div fxFlex>/</div>
+        <div fxFlex></div>
+        <div fxFlex>/</div>
+        <div fxFlex></div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+  </mat-list>
+</div>
+<div *ngIf="!data">
+  -
+</div>

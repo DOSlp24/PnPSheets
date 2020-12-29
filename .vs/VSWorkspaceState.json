@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\pnp-form\\background",
+    "\\src\\app\\pnp-form\\inventory",
+    "\\src\\app\\pnp-form\\money",
+    "\\src\\app\\pnp-form\\pers-information",
+    "\\src\\app\\service",
+    "\\src\\assets",
+    "\\src\\assets\\json"
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\src\\assets\\json\\mockup.json",
   "PreviewInSolutionExplorer": false
 }

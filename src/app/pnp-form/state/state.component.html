@@ -1,0 +1,34 @@
+<div *ngIf="data">
+  <div fxFlexFill class="place-vert bordered">
+    <div class="place-around">St -></div>
+    <div fxFlex class="state-numbers">
+      <div fxFlexFill *ngFor="let mentalArray of mentalEntries">
+        <div fxFlex *ngFor="let mp of mentalArray">{{mp}}</div>
+      </div>
+    </div>
+  </div>
+  <div fxFlexFill class="place-vert bordered">
+    <div class="place-around">Lp -></div>
+    <div fxFlex class="state-numbers">
+      <div fxFlexFill *ngFor="let hitpointArray of lifepointEntries">
+        <div fxFlex *ngFor="let lp of hitpointArray">{{lp}}</div>
+      </div>
+    </div>
+  </div>
+  <div fxFlexFill class="place-vert bordered">
+    <div class="place-around">Gl -></div>
+    <div fxFlex class="state-numbers">
+      <div fxFlexFill *ngFor="let luckArray of luckEntries">
+        <div fxFlex *ngFor="let lp of luckArray">{{lp}}</div>
+      </div>
+    </div>
+  </div>
+  <div fxFlexFill class="place-vert bordered">
+    <div class="place-around">Ma -></div>
+    <div fxFlex class="state-numbers">
+      <div fxFlexFill *ngFor="let manaArray of manaEntries">
+        <div fxFlex *ngFor="let mp of manaArray">{{mp}}</div>
+      </div>
+    </div>
+  </div>
+</div>

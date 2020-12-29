@@ -1,0 +1,27 @@
+div {
+}
+
+.bordered {
+  border: solid;
+}
+
+.space-around {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.page {
+  background-image: url("../../assets/img/background.jpg");
+  min-height: 3508px !important;
+  background-size: contain;
+}
+
+.pdf-export {
+  background-image: url("../../assets/img/background.jpg");
+  max-height: 3508px !important;
+  min-height: 3508px !important;
+  max-width: 2480px !important;
+  min-width: 2480px !important;
+}

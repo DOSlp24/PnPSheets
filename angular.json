@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PnPSheets"
+    }
+  },
+  "defaultProject": "PnPSheets",
+  "cli": {
+    "analytics": "4ab198cd-336a-4481-8ebb-66fb17be677d"
+  }
 }

@@ -1,0 +1,254 @@
+<button mat-button (click)="generateDownloadJsonUri()">Rebuild Json</button>
+<a *ngIf="!dirty" class="btn btn-clear" title="Download JSON" [href]="downloadHref" download="{{getName()}}.json">{{tmpData.pers_info.name}}.json herunterladen</a>
+<button mat-button (click)="fileChooser.click()">
+  <div fxLayoutAlign="center center" fxLayout="row">
+    <mat-icon>folder_open</mat-icon>
+    <p>Json hochladen</p>
+  </div>
+</button>
+<input #fileChooser style="display:none" type="file" id='fileChooser' (change)='uploadJson($event.target.files)' name="fileChooser" ng2FileSelect [uploader]="uploader" />
+
+
+<div *ngIf="tmpData">
+  <!-----------------------------------------------------------Image-------------------------------------------------------------->
+  <h1>Bild</h1>
+  <div fxFlexFill>
+    <mat-form-field style="width:60%;">
+      <mat-label>Url/Name</mat-label>
+      <input matInput name="picSrcInput" [(ngModel)]="tmpData.picture.src" (change)="refreshData()" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Typ</mat-label>
+      <input matInput name="picTypeInput" [(ngModel)]="tmpData.picture.type" (change)="refreshData()" />
+    </mat-form-field>
+  </div>
+
+  <!-----------------------------------------------------------Pers Info-------------------------------------------------------------->
+  <h1>Pers Info</h1>
+  <div fxFlexFill>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" name="nameInput" matInput [(ngModel)]="tmpData.pers_info.name" (change)="refreshData()" placeholder="Otto Waalkes" />
+      <mat-hint>Name ist Pflicht :)</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Gespielt von</mat-label>
+      <input matInput name="playedByInput" [(ngModel)]="tmpData.pers_info.played_by" (change)="refreshData()" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Beruf</mat-label>
+      <input matInput name="occInput" [(ngModel)]="tmpData.pers_info.occupation" (change)="refreshData()" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Geburtstag</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker color="accent" [startAt]="defaultDate" #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-button (click)="picker.open()">Datepicker</button>
+
+    <mat-form-field>
+      <mat-label>Alter</mat-label>
+      <input matInput name="ageInput" type="number" [(ngModel)]="tmpData.pers_info.age" (change)="refreshData()" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Geschlecht</mat-label>
+      <input matInput name="genInput" [(ngModel)]="tmpData.pers_info.gender" (change)="refreshData()" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Adresse</mat-label>
+      <input matInput name="adrInput" [(ngModel)]="tmpData.pers_info.address" (change)="refreshData()" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Geburtsort</mat-label>
+      <input matInput name="pobInput" [(ngModel)]="tmpData.pers_info.place_of_birth" (change)="refreshData()" />
+    </mat-form-field>
+  </div>
+
+  <!-----------------------------------------------------------Background-------------------------------------------------------------->
+  <h1>Hintergrund</h1>
+  <div fxFlexFill>
+    <mat-form-field style="width:50%;">
+      <mat-label>Beschreibung</mat-label>
+      <textarea matInput name="descInput" [(ngModel)]="tmpData.background.description" (change)="refreshData()"></textarea>
+    </mat-form-field>
+    <mat-form-field style="width:50%;">
+      <mat-label>Glaube</mat-label>
+      <textarea matInput name="belInput" [(ngModel)]="tmpData.background.belief" (change)="refreshData()"></textarea>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Wichtiger Ort</mat-label>
+      <input matInput name="favPlaceInput" [(ngModel)]="tmpData.background.fav_place" (change)="refreshData()" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Wichtige Person</mat-label>
+      <input matInput name="favPersonInput" [(ngModel)]="tmpData.background.fav_person" (change)="refreshData()" />
+    </mat-form-field>
+    <br />
+
+    <div fxFlexFill>
+      <div fxFlex>
+        <h3>Charakteristika</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let char of tmpData.background.character; let i = index" (click)="deleteChar(i)">
+            {{char}}
+          </mat-list-item>
+        </mat-list>
+        <mat-form-field fxFlexFill>
+          <mat-label>Charakteristika</mat-label>
+          <input matInput [(ngModel)]="charText" (change)="pushChar($event.target.value)" />
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <h3>Phobien</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let phobia of tmpData.background.phobia; let i = index" (click)="deletePhobia(i)">
+            {{phobia}}
+          </mat-list-item>
+        </mat-list>
+        <mat-form-field fxFlexFill>
+          <mat-label>Phobien</mat-label>
+          <input matInput [(ngModel)]="phobText" (change)="pushPhobia($event.target.value)" />
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <h3>Narben</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let scar of tmpData.background.scars; let i = index" (click)="deleteScar(i)">
+            {{scar}}
+          </mat-list-item>
+        </mat-list>
+        <mat-form-field fxFlexFill>
+          <mat-label>Narben</mat-label>
+          <input matInput [(ngModel)]="scarText" (change)="pushScar($event.target.value)" />
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <h3>Zaubersprüche</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let spell of tmpData.background.magic; let i = index" (click)="deleteSpell(i)">
+            {{spell}}
+          </mat-list-item>
+        </mat-list>
+        <mat-form-field fxFlexFill>
+          <mat-label>Zaubersprüche</mat-label>
+          <input matInput [(ngModel)]="magicText" (change)="pushSpell($event.target.value)" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <!-----------------------------------------------------------Inventory-------------------------------------------------------------->
+  <h1>Inventar</h1>
+  <div fxFlexFill>
+    <mat-list>
+      <mat-list-item *ngFor="let item of tmpData.inventory; let i = index" (click)="deleteItem(i)">{{item.name}}-{{item.description}}</mat-list-item>
+    </mat-list>
+    <mat-form-field>
+      <mat-label>Item Name</mat-label>
+      <input matInput name="itemNameInput" [(ngModel)]="itemNameText" />
+    </mat-form-field>
+    <mat-form-field style="width:70%;">
+      <mat-label>Item Beschreibung</mat-label>
+      <input matInput name="itemDescInput" [(ngModel)]="itemDescText" />
+    </mat-form-field>
+
+    <button mat-button (click)="pushItem()">^</button>
+  </div>
+
+  <!-----------------------------------------------------------Money-------------------------------------------------------------->
+  <h1>Geld</h1>
+  <div fxFlexFill>
+    <mat-form-field>
+      <mat-label>Tägliches Budget</mat-label>
+      <input matInput type="number" name="dailyNormInput" [(ngModel)]="tmpData.money.daily_norm" (change)="refreshData()" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Flüssiges Vermögen</mat-label>
+      <input matInput type="number" name="cashInput" [(ngModel)]="tmpData.money.cash" (change)="refreshData()" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Angelegtes Vermögen</mat-label>
+      <input matInput type="number" name="investInput" [(ngModel)]="tmpData.money.investment" (change)="refreshData()" />
+    </mat-form-field>
+
+    <div fxFlexFill>
+      <mat-list>
+        <mat-list-item *ngFor="let valuable of tmpData.money.other; let i = index" (click)="deleteValuable(i)">{{valuable}}</mat-list-item>
+      </mat-list>
+      <mat-form-field>
+        <mat-label>Wertgegenstände</mat-label>
+        <input matInput name="valInput" [(ngModel)]="valuableText" (change)="pushValuable($event.target.value)" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-----------------------------------------------------------State-------------------------------------------------------------->
+  <h1>Status</h1>
+  <div fxFlexFill>
+    <mat-form-field>
+      <mat-label>Lebenspunkte</mat-label>
+      <input matInput name="lpInput" type="number" [value]="tmpData.state.hitpoints" (change)="pushHitpoints($event.target.value)" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Stabilitätspunkte</mat-label>
+      <input matInput name="mentInput" type="number" [value]="tmpData.state.mental" (change)="pushMental($event.target.value)" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Glück</mat-label>
+      <input matInput name="luInput" type="number" [value]="tmpData.state.luck" (change)="pushLuck($event.target.value)" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Magie</mat-label>
+      <input matInput name="maInput" type="number" [value]="tmpData.state.mana" (change)="pushMana($event.target.value)" />
+    </mat-form-field>
+  </div>
+
+  <!-----------------------------------------------------------Skills-------------------------------------------------------------->
+  <h1>Fähigkeiten</h1>
+  <div fxFlexFill>
+    <mat-list fxFlexFill>
+      <mat-list-item *ngFor="let skill of tmpData.skills; let i = index">
+        <div (click)="deleteSkill(i)">
+          {{skill.name}} - {{skill.values.normal}}/{{skill.values.hard}}/{{skill.values.extreme}}
+        </div>
+        <button mat-button (click)="incDecSkill(i, 1)">+</button>
+        <button mat-button (click)="incDecSkill(i, -1)">-</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field fxFlexFill>
+      <mat-label>Fähigkeit</mat-label>
+      <input matInput name="skInput" [(ngModel)]="skillText" (change)="pushSkill($event.target.value)" />
+      <mat-hint>Format: Name#Wert</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <!-----------------------------------------------------------Combat-------------------------------------------------------------->
+  <h1>Kampf</h1>
+
+  <!-----------------------------------------------------------Attributes-------------------------------------------------------------->
+  <h1>Attribute</h1>
+  <div fxFlexFill>
+    <mat-list fxFlexFill>
+      <mat-list-item *ngFor="let attr of tmpData.attributes; let i = index">
+        <div (click)="deleteAttribute(i)">
+          {{attr.name}} - {{attr.values.normal}}/{{attr.values.hard}}/{{attr.values.extreme}}
+        </div>
+        <button mat-button (click)="incDecAttribute(i, 1)">+</button>
+        <button mat-button (click)="incDecAttribute(i, -1)">-</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field fxFlexFill>
+      <mat-label>Attribut</mat-label>
+      <input matInput name="attrInput" [(ngModel)]="attrText" (change)="pushAttribute($event.target.value)" />
+      <mat-hint>Format: Name#Wert</mat-hint>
+    </mat-form-field>
+  </div>
+
+</div>

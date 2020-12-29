@@ -1,0 +1,14 @@
+<div *ngIf="data">
+  <dl>
+    <div *ngFor="let item of data">
+      <dt>{{item.name}}</dt>
+      <dd>{{item.description}}</dd>
+    </div>
+  </dl>
+  <div class="dark">
+    <br />
+  </div>
+</div>
+<div *ngIf="!data">
+  -
+</div>
